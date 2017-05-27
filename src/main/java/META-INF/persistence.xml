@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
+	
+	<persistence-unit name="bossanovadata" transaction-type="RESOURCE_LOCAL">
+	
+	 	<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>		
+		<jta-data-source>java:comp/env/jdbc/bossanovadataDS</jta-data-source>
+			 	
+		<class>projectopenjpa.entity.Author</class>	 	
+		<class>projectopenjpa.entity.Music</class>	
+		<class>projectopenjpa.entity.Type</class>		 	
+		<properties>	
+			<property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>
+			<property name="openjpa.DynamicEnhancementAgent" value="true" /> 
+			<property name="openjpa.Log" value="DefaultLevel=INFO" />
+			<!--  
+			<property name="openjpa.ddl-generation" value="drop-and-create-tables" />
+			-->
+			<property name="openjpa.Log" value="SQL=Trace" />
+			<property name="openjpa.ConnectionFactoryProperties" value="PrintParameters=true" />
+ 		</properties>
+	
+	</persistence-unit>
+
+	
+</persistence>
